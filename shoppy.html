@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clothing Store</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        header { background: #333; color: #fff; padding: 1rem; text-align: center; position: relative; }
+        .heart-button { position: absolute; right: 20px; top: 15px; background: none; border: none; font-size: 24px; color: #fff; cursor: pointer; }
+        .container { display: flex; flex-wrap: wrap; justify-content: center; }
+        .item { border: 1px solid #ddd; border-radius: 8px; margin: 1rem; padding: 1rem; width: 200px; text-align: center; cursor: pointer; }
+        .item img { width: 100%; height: auto; border-radius: 8px; }
+        .modal, .wishlist-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; }
+        .modal-content, .wishlist-content { background: #fff; padding: 2rem; border-radius: 8px; max-width: 500px; width: 90%; text-align: center; }
+        .button { padding: 0.5rem 1rem; margin: 0.5rem; background: #28a745; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Clothing Store</h1>
+        <button class="heart-button" onclick="toggleWishlist()">&#10084;</button>
+    </header>
+
+    <div class="container" id="itemsContainer"></div>
+
+    <div class="modal" id="itemModal">
+        <div class="modal-content">
+            <h2 id="modalTitle"></h2>
+            <img id="modalImage" style="width:200px; height:auto;">
+            <div id="modalDescription"></div>
+            <p id="modalPrice"></p>
+            <label>Size:
+                <select id="sizeSelect"></select>
+            </label><br><br>
+            <label>Color:
+                <select id="colorSelect"></select>
+            </label><br><br>
+            <button class="button" onclick="buyNow()">Buy Now</button>
+            <button class="button" onclick="addToCart()">Add to Cart</button>
+            <button class="button" style="background:#dc3545" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <div class="modal" id="transactionModal">
+        <div class="modal-content">
+            <h2>Transaction Successful</h2>
+            <p id="transactionDetails"></p>
+            <button class="button" onclick="downloadInvoice()">Download Invoice</button>
+            <button class="button" onclick="closeTransactionModal()">OK</button>
+        </div>
+    </div>
+
+    <div class="wishlist-modal" id="wishlistModal">
+        <div class="wishlist-content">
+            <h3>Wishlist (Cart)</h3>
+            <ul id="cartItems"></ul>
+            <button class="button" style="background:#dc3545" onclick="closeWishlist()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        const categories = [
+            { name: 'T-Shirt', items: [
+                { id: 1, name: 'Red T-Shirt', price: 29, color: 'Red', fabric: 'Cotton', size: 'M', delivery: '3-5 days', image: 'https://via.placeholder.com/200x200?text=Red+T-Shirt' },
+                { id: 2, name: 'Blue T-Shirt', price: 35, color: 'Blue', fabric: 'Cotton', size: 'L', delivery: '4-6 days', image: 'https://via.placeholder.com/200x200?text=Blue+T-Shirt' }
+            ]},
+            { name: 'Jeans', items: [
+                { id: 3, name: 'Slim Fit Jeans', price: 79, color: 'Blue', fabric: 'Denim', size: '32', delivery: '5-7 days', image: 'https://via.placeholder.com/200x200?text=Slim+Jeans' }
+            ]},
+            { name: 'Jackets', items: [
+                { id: 4, name: 'Black Jacket', price: 149, color: 'Black', fabric: 'Leather', size: 'L', delivery: '3-5 days', image: 'https://via.placeholder.com/200x200?text=Black+Jacket' }
+            ]},
+            { name: 'Sneakers', items: [
+                { id: 5, name: 'White Sneakers', price: 99, color: 'White', fabric: 'Canvas', size: '10', delivery: '4-6 days', image: 'https://via.placeholder.com/200x200?text=White+Sneakers' }
+            ]},
+            { name: 'Hoodie', items: [
+                { id: 6, name: 'Green Hoodie', price: 59, color: 'Green', fabric: 'Fleece', size: 'M', delivery: '3-5 days', image: 'https://via.placeholder.com/200x200?text=Green+Hoodie' }
+            ]}
+        ];
+
+        let selectedItem = null;
+        let cart = [];
+        let invoiceText = '';
+
+        function displayCategories() {
+            const container = document.getElementById('itemsContainer');
+            container.innerHTML = '';
+            categories.forEach(cat => {
+                const div = document.createElement('div');
+                div.className = 'item';
+                div.innerHTML = `<img src="https://via.placeholder.com/200x200?text=${cat.name}"><h3>${cat.name}</h3>`;
+                div.onclick = () => displayItems(cat.items);
+                container.appendChild(div);
+            });
+        }
+
+        function displayItems(items) {
+            const container = document.getElementById('itemsContainer');
+            container.innerHTML = '';
+            items.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'item';
+                div.innerHTML = `<img src="${item.image}"><h3>${item.name}</h3>`;
+                div.onclick = () => showItemDetail(item);
+                container.appendChild(div);
+            });
+        }
+
+        function showItemDetail(item) {
+            selectedItem = item;
+            document.getElementById('modalTitle').innerText = item.name;
+            document.getElementById('modalImage').src = item.image;
+            document.getElementById('modalDescription').innerHTML = `
+                <p>Fabric: ${item.fabric}</p>
+                <p>Expected Delivery: ${item.delivery}</p>
+            `;
+
+            const sizes = ['S', 'M', 'L', 'XL', '32', '10'];
+            const colors = ['Red', 'Blue', 'Green', 'Black', 'White'];
+
+            document.getElementById('sizeSelect').innerHTML = sizes.map(s => `<option value="${s}" ${s === item.size ? 'selected' : ''}>${s}</option>`).join('');
+            document.getElementById('colorSelect').innerHTML = colors.map(c => `<option value="${c}" ${c === item.color ? 'selected' : ''}>${c}</option>`).join('');
+
+            document.getElementById('modalPrice').innerText = '$' + item.price;
+            document.getElementById('itemModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('itemModal').style.display = 'none';
+        }
+
+        function buyNow() {
+            const quantity = prompt(`Enter quantity for ${selectedItem.name}:`, 1);
+            const size = document.getElementById('sizeSelect').value;
+            const color = document.getElementById('colorSelect').value;
+
+            if (quantity && !isNaN(quantity) && quantity > 0) {
+                const total = selectedItem.price * parseInt(quantity);
+                const details = `Invoice:\n${selectedItem.name}\nSize: ${size}\nColor: ${color}\n$${selectedItem.price} x ${quantity} = $${total}\nTotal: $${total}`;
+                invoiceText = details;
+                document.getElementById('transactionDetails').innerText = details;
+                document.getElementById('transactionModal').style.display = 'flex';
+                closeModal();
+            }
+        }
+
+        function addToCart() {
+            const quantity = prompt(`Enter quantity for ${selectedItem.name}:`, 1);
+            const size = document.getElementById('sizeSelect').value;
+            const color = document.getElementById('colorSelect').value;
+
+            if (quantity && !isNaN(quantity) && quantity > 0) {
+                cart.push({ ...selectedItem, quantity: parseInt(quantity), selectedSize: size, selectedColor: color });
+                updateCart();
+                alert('Added to cart');
+            }
+        }
+
+        function updateCart() {
+            const cartList = document.getElementById('cartItems');
+            cartList.innerHTML = '';
+            cart.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    ${item.name} (Size: ${item.selectedSize}, Color: ${item.selectedColor}) - $${item.price} x ${item.quantity} = $${item.price * item.quantity}
+                    <button class="button" onclick="buyFromWishlist(${index})">Buy</button>
+                `;
+                cartList.appendChild(li);
+            });
+        }
+
+        function buyFromWishlist(index) {
+            const item = cart[index];
+            const quantity = prompt(`Enter quantity for ${item.name}:`, item.quantity);
+            if (quantity && !isNaN(quantity) && quantity > 0) {
+                const total = item.price * parseInt(quantity);
+                const details = `Invoice:\n${item.name}\nSize: ${item.selectedSize}\nColor: ${item.selectedColor}\n$${item.price} x ${quantity} = $${total}\nTotal: $${total}`;
+                invoiceText = details;
+                document.getElementById('transactionDetails').innerText = details;
+                document.getElementById('transactionModal').style.display = 'flex';
+                cart.splice(index, 1);
+                updateCart();
+                closeWishlist();
+            }
+        }
+
+        function toggleWishlist() {
+            document.getElementById('wishlistModal').style.display = 'flex';
+        }
+
+        function closeWishlist() {
+            document.getElementById('wishlistModal').style.display = 'none';
+        }
+
+        function closeTransactionModal() {
+            document.getElementById('transactionModal').style.display = 'none';
+        }
+
+        function downloadInvoice() {
+            const blob = new Blob([invoiceText], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'invoice.txt';
+            link.click();
+        }
+
+        displayCategories();
+    </script>
+</body>
+</html>
