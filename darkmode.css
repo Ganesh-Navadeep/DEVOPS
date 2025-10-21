@@ -1,0 +1,221 @@
+/*******************toggle light/dark theme********************/
+button{
+    cursor: pointer;
+    border: 1px solid #555;
+    text-align: center;
+    padding: 5px;
+    margin-left: 8px; 
+  }
+  
+
+  
+  .dark {
+    background-color: #222;
+    color: #e6e6e6;
+  }
+
+  hr {
+    height: 1px; /* Set the height of the <hr/> line */
+    background-color: #ccc; /* Set the color of the <hr/> line */
+    border: none; /* Remove any default border */
+}
+
+/* Dark mode styles for header */
+.dark .head {
+    background-color: #333; /* Dark mode header background color */
+}
+
+/* Update styles for header */
+.dark header.head {
+    background-color: #333; /* Dark mode header background color */
+    color: #fff; /* Dark mode text color */
+}
+
+.dark header.head .header-top {
+    background-color: #333; /* Dark mode background color for header top */
+    color: #d83b3b; /* Dark mode text color for header top */
+    padding: 10px; /* Add padding to header top */
+}
+
+.dark header.head .header-top img {
+    max-width: 100%; /* Make sure image doesn't overflow its container */
+    vertical-align: middle; /* Align image vertically */
+    margin-right: 10px; /* Add spacing to the right of the image */
+}
+
+.dark header.head .header-top h2 {
+    margin: 0; /* Reset margin */
+    font-size: 24px; /* Adjust font size */
+}
+
+.dark header.head .header-top .header-buttons button {
+    color: #fff; /* Dark mode button text color */
+    background-color: #0f0e0e; /* Dark mode button background color */
+    border: none; /* Remove button border */
+    padding: 8px 16px; /* Adjust padding */
+    margin-left: 8px; /* Add margin to button */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+/* Additional styling for button hover state */
+.dark header.head .header-top .header-buttons button:hover {
+    background-color: #111010; /* Dark mode button background color on hover */
+}
+
+  /* Update styles for navigation */
+  .dark nav {
+    background-color: #111; /* Example background color for the navigation in dark mode */
+  }
+  
+  /* Update styles for main section */
+  .dark .main {
+    background-color: #111; /* Example background color for the main section in dark mode */
+  }
+  
+  .dark .page-title  .about-para{
+    background-color: #444;
+    color: #fff; /* Adjust paragraph text color for dark mode */
+  }
+
+  .dark .page-title {
+    background-color: #333; /* Dark mode background color */
+    color: #fff; /* Dark mode text color */
+}
+
+.dark .home-para {
+    color: #fff; /* Dark mode text color */
+}
+  
+  .dark .story {
+    background-color: #444;
+    color: #fff; /* Adjust paragraph text color for dark mode */
+  }
+  
+  /* Update styles for footer */
+  .dark footer {
+    background-color: #111; /* Example background color for the footer in dark mode */
+    color: #fff; /* Example text color for the footer in dark mode */
+  }
+  
+  .dark .product {
+    background-color: #222; /* Dark mode background color */
+    color: #fff; /* Dark mode text color */
+}
+
+.dark .product h2, 
+.dark .product p {
+    color: #fff; /* Dark mode text color */
+}
+
+.dark .product .pro-container .pro {
+    background-color: #333; /* Dark mode product background color */
+    color: #fff; /* Dark mode product text color */
+}
+
+.dark .product .pro-container .pro .des span,
+.dark .product .pro-container .pro .des h5,
+.dark .product .pro-container .pro .des h4 {
+    color: #fff; /* Dark mode product detail text color */
+}
+
+.dark .product .pro-container .pro .des .star span {
+    color: #f3d251; /* Dark mode star color */
+}
+
+.dark .product .pro-container .pro .des .star i {
+    color: #f3d251; /* Dark mode star color */
+}
+
+.dark .product .pro-container .pro .des .star span,
+.dark .product .pro-container .pro .des .star i {
+    filter: drop-shadow(0 0 2px #000); /* Dark mode star shadow */
+}
+
+/* Dark mode styles */
+.dark {
+    background-color: #121212; /* Dark mode background color */
+    color: #fff; /* Dark mode text color */
+}
+
+.dark header {
+    background-color: #333; /* Dark mode header background color */
+}
+
+.dark header .nav-items .nav-link a {
+    color: #fff; /* Dark mode navigation link text color */
+}
+
+.dark section#contact {
+    background-color: #222; /* Dark mode contact section background color */
+}
+
+.dark section#contact .form {
+    background-color: #333; /* Dark mode contact form background color */
+}
+
+.dark section#contact .getin-details,
+.dark section#contact .get-in {
+    color: #fff; /* Dark mode contact section text color */
+}
+
+.dark section#contact .pro-links i {
+    color: #fff; /* Dark mode social media icon color */
+}
+
+.dark section#map {
+    background-color: #111; /* Dark mode map section background color */
+}
+
+.dark section#map iframe {
+    border: 1px solid #333; /* Dark mode map border color */
+}
+
+.dark footer {
+    background-color: #333; /* Dark mode footer background color */
+}
+
+.dark footer .col,
+.dark footer .copyright {
+    color: #fff; /* Dark mode footer text color */
+}
+
+.dark footer .icon i {
+    color: #fff; /* Dark mode footer social media icon color */
+}
+
+.dark section#contact .form {
+    background-color: #222; /* Dark mode background color for the form */
+    color: #fff; /* Dark mode text color for the form */
+    padding: 20px; /* Add padding to the form */
+}
+
+.dark section#contact .form h2 {
+    color: #fff; /* Dark mode heading text color */
+}
+
+.dark section#contact .form p {
+    color: #ccc; /* Dark mode paragraph text color */
+}
+
+.dark section#contact .form .getin-details {
+    margin-top: 20px; /* Add margin to the getin-details section */
+}
+
+.dark section#contact .form .getin-details h3 {
+    color: #fff; /* Dark mode heading text color for details */
+    margin-bottom: 10px; /* Add bottom margin to details headings */
+}
+
+.dark section#contact .form .getin-details p {
+    color: #ccc; /* Dark mode text color for details */
+}
+
+.dark section#contact .form .getin-details i {
+    color: #ccc; /* Dark mode icon color for details */
+    margin-right: 10px; /* Add right margin to icons */
+}
+
+
+  
+  
+  

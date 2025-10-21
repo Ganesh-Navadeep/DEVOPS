@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple E-Commerce Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="darkmode.css">
+
+</head>
+<body>
+    <header>
+        
+        <!----Button login -->
+        <div class="navbar">
+          <h1>Shopping cart</h1>
+          <button class="mode" onclick="toggledarkmode()">Switch mode</button>
+
+          <button class="login"><a href="login.html">Login</a></button>
+          </div>
+          <br>
+          <!--<button class="mode" onclick="toggledarkmode()">Switch mode</button>-->
+  
+          <div class="container">
+  
+              <nav>
+                  <ul>
+                      <li><a href="Home.html">Home</a></li>
+                      <li><a href="products.html">Products</a></li>
+                      <li><a href="About.html">About</a></li>
+                      <li><a href="Contact.html">Contact Us</a></li>
+                  </ul>
+              </nav>
+              <br><br>
+          </div>
+    </header>
+<br>
+<br>
+
+<main>            <!--------------contact details start------>
+<section id="contact">
+
+    <div class="form">
+        <h2>Get In Touch</h2>
+        <p>Looking for help?Contact us now</p>
+
+        <div class="getin-details">
+            <h3>Headquarters</h3>
+            <div>
+                <i class="fas fa-house get"></i>
+                <p>17-1-674/A,guntur,Guntur District</p>
+            </div>
+            <h3>Phone </h3>
+            <div>
+                <i class="fas fa-phone-alt get"></i>
+
+                <p>9492345678 <br>
+                    9916684893
+                </p>
+            </div>
+            <h3>Support</h3>
+            <div>
+                <i class="fa-solid fa-envelope-open-text get"></i>
+                <p>shoppingcart@gmail.com <br>
+                    shopping.com</p>
+
+            </div>
+            <h3>Follow us</h3>
+            <div class="pro-links">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-linkedin-in"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<form id="contact-form">
+    <h2>Get in Touch With us😊</h2>
+    <p>We are here to answer you in any time for your questions.Happy Shopping.</p>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="subject">Subject:</label>
+      <select id="subject" name="subject" required>
+        <option value="">Select a subject</option>
+        <option value="general-inquiry">General Inquiry</option>
+        <option value="product-question">Product Question</option>
+        <option value="order-issue">Order Issue</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea>
+    </div>
+    <br>
+    <div class="form-group">
+      <button type="submit">Send Message</button>
+    </div>
+
+  </form>
+  <br>
+  <br>
+
+  </main>
+    <!-------------------FOOTER---------------------------->
+
+    <footer>
+        <div class="footer-container">
+          <div class="footer-section">
+            <h4>About Us</h4>
+            <ul>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Meet the Team</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Customer Service</h4>
+            <ul>
+                <li><a href="About.html">About</a></li>
+                <li><a href="products.html">Products</a></li>
+              <li><a href="Contact.html">Contact Us</a></li>
+    
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>My Account</h4>
+            <ul>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="#">Register</a></li>
+              <li><a href="#">Order Tracking</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Stay Connected</h4>
+            <ul>
+              <li><a href="#" target="_blank"><i class="fa fa-facebook"></i> Facebook</a></li>
+              <li><a href="#" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
+              <li><a href="#" target="_blank"><i class="fa fa-instagram"></i> Instagram</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <p>&copy; SHOPPING CART. All rights reserved.</p>
+            <ul>
+              <li><a href="#">Terms of Use</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Site Map</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+
+        <script>
+
+            function toggledarkmode() {
+                let element = document.body;
+                element.classList.toggle("dark");
+            }
+                </script>
+                <script> src="darkmode.js" </script>
+        </body>
+        </html>
+       

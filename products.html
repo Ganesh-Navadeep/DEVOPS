@@ -1,0 +1,325 @@
+<!DOCTYPE html>  
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple E-Commerce Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="darkmode.css">
+
+    <style>
+.btn:hover{
+    transform: translatey(4px);
+ }
+.mode{
+border-radius: 10px;
+color:rgb(91, 6, 98);
+margin-left: 700px;
+background-color: rgb(231, 200, 64);
+      }
+
+    </style>
+</head>
+<body>
+    <header>
+
+
+<!----Button login -->
+<div class="navbar">
+    <h1>Shopping cart</h1>
+    <button class="mode" onclick="toggledarkmode()">Switch mode</button>
+    
+    <button class="login"><a href="login.html">Login</a></button>
+    </div>
+    <br>
+    <!--<button class="mode" onclick="toggledarkmode()">Switch mode</button>-->
+
+    <div class="container">
+
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <br><br>
+
+    </div>
+    </header>
+    <br>
+    <br>
+<main>
+
+  
+
+    <section class="products">
+        <h1 class="heading">Featured Products</h1>
+    <br>
+    <h2>SHIRTS</h2>
+    <br>
+    <div class="product-list">
+        <div class="product-item" onclick="window.location.href='product1.html';">
+            <img src="./images/shirt4.jpg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>$19.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        <div class="product-item" onclick="window.location.href='product2.html';">
+            <img src="./images/shirt2.jpg" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>$29.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        <div class="product-item" onclick="window.location.href='product3.html';">
+            <img src="./images/shirt3.jpg" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>$39.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+    </div>
+</section>
+
+<section class="products">
+    <div class="product-list">
+        <div class="product-item" onclick="window.location.href='product4.html';">
+            <img src="./images/shirt6.jpg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>$19.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        <div class="product-item" onclick="window.location.href='product5.html';">
+            <img src="./images/shirt7.jpg" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>$29.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        <div class="product-item" onclick="window.location.href='product6.html';">
+            <img src="./images/shirt8.jpg" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>$39.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        
+    </div>
+</section>
+
+<section class="products">
+    <h2>JACKETS</h2>
+    <br>
+    <div class="product-list">
+        <div class="product-item" onclick="window.location.href='product7.html';">
+            <img src="./images/jacket1.jpg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>$19.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        <div class="product-item" onclick="window.location.href='product8.html';">
+            <img src="./images/jacket3.jpg" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>$29.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        <div class="product-item" onclick="window.location.href='product9.html';">
+            <img src="./images/jacket9.jpg" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>$39.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        
+    </div>
+</section>
+
+<section class="products">
+    <div class="product-list">
+        <div class="product-item" onclick="window.location.href='product10.html';">
+            <img src="./images/jacket6.jpg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>$19.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        <div class="product-item" onclick="window.location.href='product11.html';">
+            <img src="./images/jacket7.jpg" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>$29.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        <div class="product-item" onclick="window.location.href='product12.html';">
+            <img src="./images/jacket8.jpg" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>$39.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        
+    </div>
+</section>
+
+<section class="products">
+    <h2>PANTS</h2>
+    <br>
+    <div class="product-list">
+        <div class="product-item">
+            <img src="./images/pant1.jpg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>$19.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        <div class="product-item">
+            <img src="./images/pant2.jpg" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>$29.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        <div class="product-item">
+            <img src="./images/tshirt7.jpg" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>$39.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        
+    </div>
+</section>
+
+<section class="products">
+    <div class="product-list">
+        <div class="product-item">
+            <img src="./images/tshirt2.jpg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>$19.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        <div class="product-item">
+            <img src="./images/tshirt4.jpg" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>$29.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        <div class="product-item">
+            <img src="./images/tshirt6.jpg" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>$39.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        
+    </div>
+</section>
+
+
+<section class="products">
+    <h2>T-SHIRTS</h2>
+    <br>
+    <div class="product-list">
+        <div class="product-item">
+            <img src="./images/tshirt8.jpg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>$19.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        <div class="product-item">
+            <img src="./images/tshirt6.jpg" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>$29.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        <div class="product-item">
+            <img src="./images/tshirt.jpg" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>$39.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        
+    </div>
+</section>
+
+
+<section class="products">
+    <div class="product-list">
+        <div class="product-item">
+            <img src="./images/tshirt9.jpg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>$19.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        <div class="product-item">
+            <img src="./images/tshirt10.jpg" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>$29.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        <div class="product-item">
+            <img src="./images/tshirt12.jpg" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>$39.99</p>
+            <a href="#" class="btn">View</a>
+        </div>
+        
+    </div>
+</section>
+
+
+</main>
+
+
+<!-------------------FOOTER---------------------------->
+
+<footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>About Us</h4>
+        <ul>
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Meet the Team</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Customer Service</h4>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="products.html">Products</a></li>
+          <li><a href="Contact.html">Contact Us</a></li>
+
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>My Account</h4>
+        <ul>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="#">Register</a></li>
+          <li><a href="#">Order Tracking</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Stay Connected</h4>
+        <ul>
+          <li><a href="#" target="_blank"><i class="fa fa-facebook"></i> Facebook</a></li>
+          <li><a href="#" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></li>
+          <li><a href="#" target="_blank"><i class="fa fa-instagram"></i> Instagram</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <p>&copy; SHOPPING CART. All rights reserved.</p>
+        <ul>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Site Map</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+
+<script>
+
+    function toggledarkmode() {
+        let element = document.body;
+        element.classList.toggle("dark");
+    }
+        </script>
+        <script> src="darkmode.js" </script>
+
+</body>
+</html>

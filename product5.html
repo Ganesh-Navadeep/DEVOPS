@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple E-Commerce Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+     <!----Button login -->
+     <div class="navbar">
+        <h1>Shopping cart</h1>
+        <button class="login"><a href="login.html">Login</a></button>
+        </div>
+        <br>
+        <!--<button class="mode" onclick="toggledarkmode()">Switch mode</button>-->
+
+        <div class="container">
+
+            <nav>
+                <ul>
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="Contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <br><br>
+        </div>
+    </header>
+<br><br>
+
+    <main>
+
+
+
+<section id="sproduct-details" class="sproduct-part1">
+    <div class="single-pro-img">
+        <img src="images/shirt7.jpg" width="100%" id="MainImg" alt="">
+        <div class="small-img-group">
+            <div class="small-img-col">
+                <img src="images/shirt2.jpg" width="100% " class="small-img" alt="">
+
+            </div>
+            <div class="small-img-col">
+                <img src="images/shirt3.jpg" width="100% " class="small-img" alt="">
+
+            </div>
+            <div class="small-img-col">
+                <img src="images/shirt2.jpg" width="100% " class="small-img" alt="">
+
+            </div>
+            <div class="small-img-col">
+                <img src="images/shirt4.jpg" width="100% " class="small-img" alt="">
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="single-pro-details">
+        <div class="inputs">
+        <h6>Home / T-shirt</h6><br>
+
+        <h4>Men's Fashion T-shirts</h4><br>
+
+        <h2 class="price">£17 <sup>99</sup></h2><br>
+        <select name="" id="">
+            <option>Select Size</option>
+            <option>XL</option>
+            <option>XXL</option>
+            <option>Small</option>
+            <option>Large</option>
+        </select><br>
+        <input type="number" value="0"><br>
+        <br>
+        <button class="cart" onclick="myfunction1()">Add To Cart</button><br>
+        <button onclick="window.location.href='shipment.html'" class="buy-now"><a >Buy Now</a></button><br>
+      
+        <h4>Product Detail </h4>
+        <span>
+            Aldo fashion wear our Premium Fabric Casual Shirt. This vibrant and comfortable shirt
+            is perfect for those who love the laid-back Hawaiian lifestyle.
+            Made from high-quality, breathable cotton, this shirt ensures a comfortable fit in any season.
+             The lightweight fabric is perfect for warm days and nights, making it an ideal choice for casual wear and it is stretchable
+            cloth.
+        </span>
+        <br>
+        <span>
+         Aldo Premium Casual Shirt is available in sizes ranging from Small to XXL, ensuring a comfortable fit for a wide range of body types
+            You can Choose from a variety of color options to suit your personal style. Options may include classic  Grey,Pink,white, vibrant blue, sunset orange, and more.
+        </span>
+        </div>
+
+    </div>
+</section>
+<br><br>
+<br>
+<br>
+
+
+<h1>Currency Converter</h1>
+  <p>Select Currency and enter Amount to convert.</p>
+  <form>
+    <label>From:</label>
+    <select id="from">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+      <option value="INR">INR</option>
+    </select>
+    <label>To:</label>
+    <select id="to">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+      <option value="INR">INR</option>
+    </select>
+    <label>Amount:</label>
+    <input type="text" id="amount" />
+    <button type="button" id="convert">Convert</button>
+    <p id="result"></p>
+  </form>
+
+</main>
+
+<script>
+    const convert = document.getElementById("convert");
+    const result = document.getElementById("result");
+    const from = document.getElementById("from");
+    const to = document.getElementById("to");
+    const amount = document.getElementById("amount");
+    convert.addEventListener("click", function() {
+      let fromCurrency = from.value;
+      let toCurrency = to.value;
+      let amt = amount.value;
+      fetch(`https://api.exchangerate-api.com/v4/latest/${fromCurrency}`)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        let rate = data.rates[toCurrency];
+        let total = rate * amt;
+        result.innerHTML = `${amt} ${fromCurrency} = ${total} ${toCurrency}`;
+      });
+    });
+  </script>
+
+<footer>
+    <div class="col col1">
+        <h4>Contact</h4>
+        <p><strong>Address: </strong> 17-1-698/A,Guntur ,guntur disrtict</p>
+        <p><strong>Phone: </strong>+01 2345 678</p>
+
+<div class="follow">
+    <h4>Follow us </h4>
+    <div class="icon">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-youtube"></i>
+    </div>
+    <div class="container">
+        <p>&copy; 2024 My shopping cart . All rights reserved.</p>
+    </div>
+</footer>
+
+
+</body>
+</html>
